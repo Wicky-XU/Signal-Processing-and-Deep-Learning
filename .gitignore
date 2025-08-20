@@ -1,0 +1,118 @@
+# 数据文件夹 - 通常包含大文件和个人数据
+data/
+# 但保留数据文件夹结构说明（可选）
+!data/README.md
+!data/.gitkeep
+
+# 模型文件 - 训练生成的大文件
+models/
+# 保留模型文件夹结构说明（可选）
+!models/README.md
+!models/.gitkeep
+
+# Python 相关
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyTorch 模型文件
+*.pth
+*.pt
+*.ckpt
+
+# TensorFlow 模型文件
+*.h5
+*.hdf5
+saved_model/
+*.pb
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 环境变量
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# 大文件和数据集
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.csv
+*.json
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# 项目中涉及的音频文件
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.aac
+*.wma
+
+# 通用图像文件（如果不需要在git中保存）
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.gif
+
+# 特定于机器学习的忽略
+wandb/
+.neptune/
+mlruns/
+.mlflow/
