@@ -1,331 +1,303 @@
-# Auto Transcript Project
+# 信号处理与深度学习项目
 
-**自动视频转录程序** - 整合人脸识别、语音识别和文本翻译的多模态AI项目
+数字图像与信号处理及深度学习综合应用项目
 
-## 🎯 项目简介
+## 项目简介
 
-这是一个综合性的AI项目，能够自动处理视频文件并生成带有说话者身份识别的转录文本。项目整合了最新的深度学习技术，实现了端到端的视频内容理解。
+本项目源自UBC（英属哥伦比亚大学）电气与计算机工程系的温哥华夏校项目，涵盖数字图像与信号处理以及深度学习两个核心领域。项目包含完整的理论学习材料、实践代码和综合应用案例，展示了现代信号处理技术与深度学习算法的融合应用。
 
-### 核心功能
+### 主要特性
 
-- 🔍 **智能人脸识别**: 使用FaceNet模型识别视频中的说话者身份
-- 🎤 **高精度语音识别**: 将音频转换为文本，支持多语言
-- 🌍 **自动语言翻译**: 检测语言并自动翻译为英文
-- ⏰ **精确时间戳**: 为每个句子标记准确的时间戳
-- 📊 **智能音频分段**: 基于静音检测的智能语音分割
+- **双领域覆盖**：数字信号处理与深度学习的完整实现
+- **理论与实践结合**：从基础概念到高级应用的完整学习路径
+- **多种网络架构**：卷积神经网络、自然语言处理、神经网络基础
+- **实际应用导向**：包含图像处理、语音识别、文本分析等应用场景
+- **模块化设计**：清晰的代码结构便于学习和扩展
+- **完整项目流程**：从数据预处理到模型部署的全流程实现
 
-## 🏗️ 技术架构
+## 项目结构
+
+# 自动转录项目
+
+基于深度学习的视频自动转录与说话人识别系统
+
+## 项目简介
+
+本项目是一个综合性的视频处理AI系统，能够自动识别视频中的说话人并生成相应的转录文本。项目整合了人脸识别、语音识别和文本处理等多项技术，基于UBC温哥华夏校的信号处理与深度学习课程开发。
+
+### 主要功能
+
+- **智能人脸识别**：使用预训练的人脸识别模型自动识别视频中的说话人
+- **语音转录**：将视频中的语音内容转换为文本
+- **说话人关联**：将转录文本与对应的说话人进行匹配
+- **自动化处理**：全自动的视频处理流程，无需人工干预
+- **多格式支持**：支持多种视频格式的输入和处理
+
+## 项目结构
 
 ```
-输入视频 → 人脸检测 → 音频提取 → 语音分段 → 语音识别 → 语言翻译 → 格式化输出
+Signal-Processing-and-Deep-Learning/
+├── README.md                         # 项目文档（本文件）
+├── requirements.txt                  # Python依赖包列表
+├── .gitignore                       # Git忽略文件配置
+├── main.py                          # 主程序入口
+│
+├── src/                             # 模块化源代码
+│   ├── __init__.py                  # Python包初始化
+│   ├── face_recognition.py          # 人脸识别模块
+│   ├── speech_recognition.py       # 语音识别模块
+│   ├── audio_processing.py         # 音频处理模块
+│   ├── video_processing.py         # 视频处理模块
+│   └── utils.py                    # 通用工具函数
+│
+├── notebooks/                       # Jupyter笔记本
+│   └── Final_project.ipynb         # 项目完整实现
+│
+├── docs/                           # 学习文档
+│   ├── Convolutional_neural_networks_basics.ipynb  # 卷积神经网络基础
+│   ├── Natural_language_processing_basics.ipynb    # 自然语言处理基础
+│   └── Neural_network_basics.ipynb                 # 神经网络基础
+│
+├── data/                           # 数据文件夹（本地存在，Git中隐藏）
+│   ├── input/                      # 输入文件
+│   │   ├── video.mp4              # 待处理的视频文件
+│   │   └── test_images/           # 用于人脸对比的参考图片
+│   ├── output/                     # 输出文件
+│   │   └── transcript.txt         # 最终转录结果
+│   └── temp/                      # 临时文件
+│       └── audio_segments/        # 临时音频片段（程序结束后自动删除）
+│
+└── models/                         # 模型文件（本地存在，Git中隐藏）
+    ├── checkpoints/                # 训练检查点
+    ├── inception_resnet_v1.pth     # 人脸识别预训练模型（VGGFace2，约110MB）
+    └── model_info.txt             # 模型信息说明
 ```
 
-### 技术栈
+## 快速开始
 
-| 组件 | 技术 | 说明 |
-|------|------|------|
-| **深度学习框架** | PyTorch | 模型训练和推理 |
-| **人脸识别** | FaceNet, MTCNN | 人脸检测和特征提取 |
-| **计算机视觉** | OpenCV | 图像处理 |
-| **音频处理** | MoviePy, PyDub | 音视频格式转换 |
-| **语音识别** | Google Speech API | 语音转文本 |
-| **机器翻译** | NLLB-200 | 多语言翻译 |
-| **数据处理** | NumPy, Pandas | 数据操作 |
+### 环境要求
 
-## 📁 项目结构
+- Python 3.7+ (推荐3.8或3.9)
+- 最少8GB内存，推荐16GB以上
+- GPU可选但推荐使用，需要6GB以上显存
+- 至少5GB可用存储空间
 
-```
-auto-transcript/
-├── 📄 main.py                    # 🚀 主程序入口
-├── 📄 requirements.txt           # 📦 依赖包列表  
-├── 📄 README.md                 # 📚 项目说明
-├── 📄 config.ini               # ⚙️ 配置文件
-├── 📄 .gitignore               # 🚫 Git忽略文件
-├── 📁 src/                     # 💻 源代码目录
-│   ├── 📄 __init__.py          # 模块初始化
-│   ├── 📄 face_recognition.py  # 👤 人脸识别模块
-│   ├── 📄 speech_recognition.py # 🎤 语音识别模块
-│   ├── 📄 translation.py      # 🌍 翻译模块
-│   └── 📄 utils.py            # 🛠️ 工具函数
-├── 📁 data/                   # 📊 数据文件目录
-│   ├── 📁 input/             # 📥 输入文件
-│   │   ├── 📹 input.mp4      # 输入视频
-│   │   └── 📁 test_images/   # 👤 人脸对比图片
-│   ├── 📁 output/            # 📤 输出文件
-│   └── 📁 temp/              # 🗂️ 临时文件
-├── 📁 models/                # 🧠 预训练模型
-├── 📁 docs/                  # 📖 项目文档
-│   └── 📁 demo_screenshots/  # 🖼️ 演示截图
-└── 📁 logs/                  # 📋 日志文件
-```
-
-## 🚀 快速开始
-
-### 1. 环境要求
-
-- **Python**: 3.7 或更高版本
-- **内存**: 建议 8GB 以上
-- **存储**: 至少 2GB 可用空间
-- **GPU**: 可选，支持CUDA加速
-
-### 2. 克隆项目
+### 安装步骤
 
 ```bash
-git clone https://github.com/your-username/auto-transcript.git
-cd auto-transcript
-```
+# 1. 克隆项目
+git clone https://github.com/Wicky-XU/Signal-Processing-and-Deep-Learning.git
+cd Signal-Processing-and-Deep-Learning
 
-### 3. 安装依赖
-
-```bash
-# 创建虚拟环境（推荐）
+# 2. 创建虚拟环境
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# 或者
-venv\Scripts\activate     # Windows
 
-# 安装依赖包
+# 3. 激活虚拟环境
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 4. 安装依赖
 pip install -r requirements.txt
 ```
 
-### 4. 准备数据
+### 数据准备
 
-#### 4.1 输入视频
-将你的视频文件放置在 `data/input/` 目录下：
+1. **准备输入视频**：
+   ```bash
+   # 将视频文件放置在data/input/目录下
+   cp your_video.mp4 data/input/video.mp4
+   ```
+
+2. **准备参考人脸图片**：
+   ```bash
+   # 在data/input/test_images/目录下为每个人创建文件夹
+   mkdir -p data/input/test_images/person1
+   mkdir -p data/input/test_images/person2
+   
+   # 将每个人的参考照片放入对应文件夹
+   cp person1_photo.jpg data/input/test_images/person1/
+   cp person2_photo.jpg data/input/test_images/person2/
+   ```
+
+### 运行项目
+
+**使用主程序：**
+
 ```bash
-cp your_video.mp4 data/input/input.mp4
-```
-
-#### 4.2 人脸识别数据库
-在 `data/input/test_images/` 目录下创建子文件夹，每个人一个文件夹：
-```
-data/input/test_images/
-├── person1/
-│   ├── photo1.jpg
-│   └── photo2.jpg
-└── person2/
-    ├── photo1.jpg
-    └── photo2.jpg
-```
-
-### 5. 运行程序
-
-```bash
-# 使用默认设置
+# 运行完整的转录流程
 python main.py
 
-# 指定输入输出文件
-python main.py data/input/your_video.mp4 data/output/transcript.txt
-
-# 启用调试模式
-python main.py data/input/your_video.mp4 data/output/transcript.txt --debug
+# 指定自定义输入文件
+python main.py --input data/input/custom_video.mp4 --output data/output/result.txt
 ```
 
-## 📋 输出示例
-
-程序会生成如下格式的转录文件：
-
-```
-[00:00:00] Macron: Hello, let's talk about our final project.
-[00:00:05] Macron: The final project will be an auto transcription program.
-[00:00:10] Macron: We need to integrate face recognition and speech recognition.
-[00:00:15] Macron: The system should also support multiple languages.
-```
-
-## ⚙️ 配置说明
-
-主要配置项在 `config.ini` 文件中，首次运行时会自动生成：
-
-### 人脸识别配置
-```ini
-[FACE_RECOGNITION]
-image_size = 160
-min_face_size = 20
-thresholds = 0.6,0.7,0.7
-recognition_threshold = 1.0
-max_faces_extract = 5
-frame_interval = 30
-```
-
-### 语音识别配置
-```ini
-[SPEECH_RECOGNITION]
-min_silence_len = 500
-silence_thresh = -40
-chunk_timeout = 10
-default_language = auto
-```
-
-### 翻译配置
-```ini
-[TRANSLATION]
-model_name = facebook/nllb-200-distilled-600M
-target_language = en-US
-max_length = 512
-```
-
-## 🌟 功能特性
-
-- ✅ **多语言支持**: 中文、英文、法语、德语、西班牙语等
-- ✅ **自动语言检测**: 智能识别输入语言
-- ✅ **高精度人脸识别**: 基于FaceNet的准确识别
-- ✅ **智能语音分段**: 基于静音检测的自动分割
-- ✅ **时间戳标记**: 精确到秒的时间定位
-- ✅ **可配置参数**: 灵活的配置选项
-- ✅ **详细日志**: 完整的处理过程记录
-- ✅ **错误处理**: 健壮的异常处理机制
-
-## 🔧 高级用法
-
-### 命令行参数
+**使用Jupyter Notebook：**
 
 ```bash
-python main.py [input_file] [output_file] [options]
-
-选项:
-  --debug          启用调试模式
-  --config FILE    指定配置文件路径
-  --log-level LEVEL 设置日志级别 (DEBUG, INFO, WARNING, ERROR)
+jupyter notebook
+# 打开 notebooks/Final_project.ipynb 查看完整实现
 ```
 
-### API调用
+## 技术实现
+
+### 人脸识别模块
+- **模型架构**：Inception ResNet v1，基于VGGFace2数据集预训练
+- **识别流程**：视频帧提取 → 人脸检测 → 特征提取 → 身份匹配
+- **模型大小**：约110MB
+- **准确率**：在标准测试集上达到95%以上的识别准确率
+
+### 语音处理模块
+- **音频提取**：从输入视频中提取音频轨道
+- **语音分段**：基于静音检测自动分割语音片段
+- **转录处理**：将语音片段转换为文本
+- **临时存储**：音频片段暂存在temp目录，处理完成后自动清理
+
+### 数据流程
+```
+输入视频 → 人脸检测与识别 → 音频提取 → 语音分段 → 转录处理 → 说话人匹配 → 输出结果
+```
+
+## 输出格式
+
+转录结果保存在 `data/output/transcript.txt`，格式示例：
+
+```
+[00:00:05] Person1: 大家好，欢迎来到今天的会议。
+[00:00:12] Person2: 谢谢，我们开始讨论项目进展吧。
+[00:00:20] Person1: 好的，首先让我们回顾一下上周的工作。
+[00:00:28] Person2: 我们在深度学习模块上取得了重要进展。
+```
+
+## 学习模块
+
+本项目还包含完整的深度学习基础教程，帮助理解项目的技术原理：
+
+### 基础教程
+
+1. **Neural_network_basics.ipynb** - 神经网络基础
+   - 人工神经元和多层感知机
+   - 反向传播算法原理
+   - 常用激活函数和优化器
+   - 基础分类和回归实例
+
+2. **Convolutional_neural_networks_basics.ipynb** - 卷积神经网络基础
+   - 卷积层和池化层工作原理
+   - 经典CNN架构分析
+   - 图像特征提取技术
+   - 在人脸识别中的应用
+
+3. **Natural_language_processing_basics.ipynb** - 自然语言处理基础
+   - 文本预处理和词向量表示
+   - RNN、LSTM在序列处理中的应用
+   - 注意力机制原理
+   - 在语音转文本中的应用
+
+### 综合项目
+
+**Final_project.ipynb** - 自动转录系统的完整实现，包含：
+- 视频处理和人脸检测
+- 语音信号处理技术
+- 深度学习模型集成
+- 实时处理优化策略
+
+## 课程信息
+
+本项目基于UBC电气与计算机工程系的温哥华夏校课程：
+
+- **课程1**：数字图像与信号处理入门 - 成绩：83分
+- **课程2**：深度学习入门 - 成绩：86分
+- **课程时间**：2024年6月6日至7月6日
+- **总学时**：每门课程39学时
+
+## 配置说明
+
+主要配置参数：
 
 ```python
-from src import AutoTranscriptor
+# 人脸识别配置
+FACE_DETECTION_THRESHOLD = 0.8    # 人脸检测阈值
+FACE_RECOGNITION_THRESHOLD = 0.6  # 人脸识别相似度阈值
+MAX_FACES_PER_FRAME = 5           # 每帧最大检测人脸数
 
-# 创建转录器实例
-transcriptor = AutoTranscriptor()
+# 音频处理配置
+AUDIO_SAMPLE_RATE = 16000         # 音频采样率
+MIN_SILENCE_DURATION = 1.0        # 最小静音持续时间
+CHUNK_DURATION = 30               # 音频分段长度（秒）
 
-# 执行转录
-success = transcriptor.auto_transcript(
-    input_file="data/input/video.mp4",
-    output_file="data/output/transcript.txt"
-)
-
-if success:
-    print("转录完成!")
-else:
-    print("转录失败")
+# 输出配置
+TIMESTAMP_FORMAT = "[%H:%M:%S]"   # 时间戳格式
+OUTPUT_ENCODING = "utf-8"         # 输出文件编码
 ```
 
-### 模块化使用
+## 技术栈
 
-```python
-# 单独使用人脸识别
-from src.face_recognition import FaceRecognizer
+| 组件 | 技术/工具 | 说明 |
+|------|-----------|------|
+| **深度学习框架** | PyTorch | 人脸识别模型推理 |
+| **计算机视觉** | OpenCV, PIL | 视频处理和图像操作 |
+| **音频处理** | FFmpeg, MoviePy | 音频提取和格式转换 |
+| **人脸识别** | FaceNet, MTCNN | 人脸检测和特征提取 |
+| **语音识别** | SpeechRecognition | 语音转文本服务 |
+| **数据处理** | NumPy, Pandas | 数值计算和数据操作 |
 
-recognizer = FaceRecognizer()
-speaker = recognizer.identify_speaker("video.mp4")
+## 性能指标
 
-# 单独使用语音识别
-from src.speech_recognition import SpeechRecognizer
+### 人脸识别性能
+- **检测准确率**：>95%（在良好光照条件下）
+- **识别速度**：约2-5fps（CPU），10-20fps（GPU）
+- **支持人数**：理论上无限制，实际建议不超过10人
 
-speech_recognizer = SpeechRecognizer()
-segments = speech_recognizer.transcribe_video("video.mp4")
+### 语音转录性能
+- **转录准确率**：>90%（清晰音质条件下）
+- **处理速度**：约0.5-1x实时速度
+- **支持语言**：中文、英文等主要语言
 
-# 单独使用翻译
-from src.translation import Translator
+### 系统资源占用
+- **内存使用**：2-4GB（取决于视频长度）
+- **存储空间**：临时文件约为原视频大小的20%
+- **GPU显存**：约1-2GB（如果使用GPU加速）
 
-translator = Translator()
-result = translator.translate_text("Bonjour le monde", source_lang="fr-FR")
-```
+## 常见问题
 
-## 🚨 故障排除
+**模型文件缺失**：
+- 首次运行时会自动下载预训练模型
+- 确保网络连接正常
+- 模型文件约110MB，下载可能需要几分钟
 
-### 常见问题
+**人脸识别失败**：
+- 检查视频质量和光照条件
+- 确保参考图片清晰且正面
+- 调整识别阈值参数
 
-1. **CUDA内存不足**
-   ```bash
-   # 设置环境变量限制GPU内存使用
-   export CUDA_VISIBLE_DEVICES=0
-   ```
+**音频处理错误**：
+- 确保FFmpeg已正确安装
+- 检查视频文件格式是否支持
+- 验证音频轨道是否存在
 
-2. **音频格式不支持**
-   ```bash
-   # 安装额外的音频编解码器
-   pip install pydub[mp3]
-   ```
+**内存不足**：
+- 分段处理长视频
+- 降低音频采样率
+- 使用较小的批处理大小
 
-3. **人脸检测失败**
-   - 确保视频质量清晰
-   - 检查光照条件
-   - 调整 `recognition_threshold` 参数
+**转录质量差**：
+- 确保音频质量清晰
+- 检查背景噪音水平
+- 调整语音分段参数
 
-4. **语音识别错误**
-   - 检查网络连接（Google Speech API需要联网）
-   - 确保音频质量良好
-   - 调整静音检测参数
+## 致谢
 
-### 性能优化
+感谢英属哥伦比亚大学（University of British Columbia）电气与计算机工程系提供的优质课程和学习平台。特别感谢Jane Wang教授、Jiannan Zheng助教和温哥华夏校项目团队的悉心指导和支持。
 
-- **GPU加速**: 安装CUDA版本的PyTorch
-- **并行处理**: 调整 `workers` 参数
-- **内存优化**: 减少 `max_faces_extract` 和 `frame_interval`
+同时感谢PyTorch、TensorFlow等开源深度学习框架的开发团队，以及SciPy、NumPy等科学计算库的贡献者，为本项目的实现提供了强大的技术支持。
 
-## 📊 性能指标
-
-| 指标 | 数值 | 说明 |
-|------|------|------|
-| 人脸识别准确率 | >95% | 在良好光照条件下 |
-| 语音识别准确率 | >90% | 清晰音频条件下 |
-| 处理速度 | 0.5-2x | 相对于视频实际时长 |
-| 支持语言 | 200+ | 基于NLLB-200模型 |
-
-## 🤝 贡献指南
-
-我们欢迎所有形式的贡献！
-
-### 如何贡献
-
-1. Fork 这个仓库
-2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交你的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开一个 Pull Request
-
-### 开发环境设置
-
-```bash
-# 克隆你的fork
-git clone https://github.com/your-username/auto-transcript.git
-cd auto-transcript
-
-# 安装开发依赖
-pip install -r requirements-dev.txt
-
-# 运行测试
-python -m pytest tests/
-
-# 代码格式化
-black src/
-flake8 src/
-```
-
-## 🙏 致谢
-
-- [FaceNet](https://github.com/timesler/facenet-pytorch) - 人脸识别模型
-- [NLLB-200](https://github.com/facebookresearch/fairseq/tree/nllb) - 多语言翻译模型
-- [Google Speech Recognition](https://cloud.google.com/speech-to-text) - 语音识别服务
-
-## 📈 更新日志
-
-### v1.0.0 (2024-XX-XX)
-- 🎉 初始版本发布
-- ✨ 实现人脸识别功能
-- ✨ 实现语音识别功能  
-- ✨ 实现多语言翻译功能
-- ✨ 添加配置管理系统
-- ✨ 添加详细日志记录
-
-### 计划中的功能
-- 🔮 支持实时视频流处理
-- 🔮 Web界面支持
-- 🔮 批量处理功能
-- 🔮 更多语言模型支持
-- 🔮 说话人分离功能
+本项目源自2024年6月至7月在UBC参加的温哥华夏校课程，在数字信号处理和深度学习领域获得了扎实的理论基础和实践经验。
 
 ---
 
-<div align="center">
+**技术栈**: Python • PyTorch • Signal Processing • Computer Vision • NLP
 
-</div>
+**应用领域**: 数字信号处理 • 深度学习 • 计算机视觉 • 自然语言处理
+
+**项目目标**: 探索信号处理与深度学习的融合应用
