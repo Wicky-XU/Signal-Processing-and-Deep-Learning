@@ -191,7 +191,7 @@ def check_dependencies():
     return True
 
 
-def check_models_cache(models_dir=r"C:\Users\29873\code\Summer-projects\auto-transcript\models"):
+def check_models_cache(models_dir=r"C:\Users\29873\Github_code\Signal-Processing-and-Deep-Learning\models"):
     """
     检查模型缓存状态
     
@@ -239,7 +239,7 @@ def check_models_cache(models_dir=r"C:\Users\29873\code\Summer-projects\auto-tra
         }
 
 
-def setup_models_cache(models_dir=r"C:\Users\29873\code\Summer-projects\auto-transcript\models"):
+def setup_models_cache(models_dir=r"C:\Users\29873\Github_code\Signal-Processing-and-Deep-Learning\models"):
     """
     设置模型缓存目录
     
@@ -280,7 +280,7 @@ def setup_models_cache(models_dir=r"C:\Users\29873\code\Summer-projects\auto-tra
         print(f"❌ 设置模型缓存目录失败: {e}")
 
 
-def print_models_info(models_dir=r"C:\Users\29873\code\Summer-projects\auto-transcript\models"):
+def print_models_info(models_dir=r"C:\Users\29873\Github_code\Signal-Processing-and-Deep-Learning\models"):
     """打印模型缓存信息"""
     cache_info = check_models_cache(models_dir)
     

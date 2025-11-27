@@ -21,7 +21,7 @@ class FaceRecognizer:
     """真正的人脸识别器类 - 基于深度学习特征对比"""
     
     def __init__(self, database_path="data/input/test_images", 
-                 models_cache_dir=r"C:\Users\29873\code\Summer-projects\auto-transcript\models"):
+                 models_cache_dir=r"C:\Users\29873\Github_code\Signal-Processing-and-Deep-Learning\models"):
         """
         初始化人脸识别器
         
